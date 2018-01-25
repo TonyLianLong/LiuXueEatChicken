@@ -35,10 +35,10 @@ export default {
     },
     clickAnswer (ansNum) {
       console.log(ansNum, this.correct)
-      if( ansNum == this.correct ){
-        console.log("correct");
-      }else{
-        console.log("not right");
+      if ( ansNum == this.correct ){
+        console.log("correct")
+      } else {
+        console.log("not right")
         this.$router.go('/result')
       }
     }
