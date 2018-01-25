@@ -1,3 +1,4 @@
+<!-- 记得做大数据 -->
 <template>
   <div id="box">
     <h1>挑战者：AQ</h1>
@@ -8,15 +9,18 @@
     <div id="question">
       {{question}}
     </div>
-    <div v-for="(answer, index) in answers" class="answer" @click="clickAnswer(index)" :key="index">
+    <div v-for="(answer, index) in answers" class="choice" @click="clickAnswer(index)" :key="index">
       {{answer}}
+    </div>
+    <div class="choice" @click="clickSkip()">
+      跳过本题
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Welcome',
+  name: 'Game',
   mounted () {
     setInterval(this.updateTime, 1000)
   },
@@ -24,8 +28,8 @@ export default {
     return {
       second: 0,
       ti: 0,
-      question: "Panopath的中文名是？",
-      answers: ["过来人","来过人","来来人","过人"],
+      question: 'Panopath的中文名是？',
+      answers: ['过来人', '来过人', '来来人', '过人'],
       correct: 0
     }
   },
@@ -35,12 +39,15 @@ export default {
     },
     clickAnswer (ansNum) {
       console.log(ansNum, this.correct)
-      if ( ansNum == this.correct ){
-        console.log("correct")
+      if (ansNum === this.correct) {
+        console.log('correct')
       } else {
-        console.log("not right")
-        this.$router.go('/result')
+        console.log('not right')
+        this.$router.push('/result')
       }
+    },
+    clickSkip () {
+      console.log('Skip')
     }
   }
 }
@@ -72,7 +79,7 @@ h1 {
   margin-bottom: 20px;
   text-align: center;
 }
-.answer {
+.choice {
   font-size: 25px;
   margin-bottom: 20px;
   text-align: center;
@@ -83,7 +90,7 @@ h1 {
   margin-left: 10%;
   margin-right: 10%;
 }
-.answer:active {
+.choice:active {
   background-color: #F3E2D9;
 }
 #box{

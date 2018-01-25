@@ -15,14 +15,10 @@
 
 <script>
 export default {
-  computed: {
-    username () {
-      return this.$route.params.username
-    }
-  },
+  name: 'Welcome',
   methods: {
     start (event) {
-      this.$router.push('/answer')
+      this.$router.push('/game')
     },
     result (event) {
       this.$router.push('/result')
@@ -38,6 +34,7 @@ export default {
 }
 #start-btn {
   margin-left: calc( 50% - 90px );
+  margin-right: calc( 50% - 90px );
   width: 180px;
   height: 60px;
   font-size: 30px;
@@ -45,6 +42,7 @@ export default {
 }
 #result-btn {
   margin-left: calc( 50% - 90px );
+  margin-right: calc( 50% - 90px );
   width: 180px;
   height: 60px;
   font-size: 30px;
