@@ -120,7 +120,7 @@ export default {
   margin-left: calc( 50% - 75px );
   margin-right: calc( 50% - 75px );
   width: 150px;
-  height: 50px;
+  height: 53px;
   font-size: 25px;
   margin-top: 30px;
 }
