@@ -1,10 +1,15 @@
 <template>
-  <div class="viewport" v-bind:style="{ width, height }">
+  <div id="box">
     <h1 id="main-title">头脑风暴</h1>
     <b-button id="start-btn" size="lg" variant="primary" @click="start">
         开始挑战
     </b-button>
-    <img src="../assets/banner-bottom.png" id="banner-bottom"/>
+    <b-button id="result-btn" @click="result">
+        排行榜
+    </b-button>
+    <div id="banner-bottom">
+      <img src="../assets/banner-bottom.png" />
+    </div>
   </div>
 </template>
 
@@ -13,22 +18,14 @@ export default {
   computed: {
     username () {
       return this.$route.params.username
-    },
-    width () {
-      return window.innerWidth + 'px'
-    },
-    height () {
-      return window.innerWidth * 1.5 + 'px'
-    }
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
     start (event) {
       this.$router.push('/answer')
+    },
+    result (event) {
+      this.$router.push('/result')
     }
   }
 }
@@ -40,17 +37,38 @@ export default {
   border: solid black 1px; /* For testing */
 }
 #start-btn {
-
+  margin-left: calc( 50% - 90px );
+  width: 180px;
+  height: 60px;
+  font-size: 30px;
+  margin-top: 30px;
+}
+#result-btn {
+  margin-left: calc( 50% - 90px );
+  width: 180px;
+  height: 60px;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 #banner-bottom {
-  margin-top: 120px;
-  padding: 0 20px;
-  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#banner-bottom img {
+  width: 90%;
 }
 #main-title {
-  margin-top: 100px;
+  font-family: 'PingFangSC-Medium';
+  margin-top: 20px;
   text-align: center;
-  font-size: 60px;
-  margin-bottom: 30px;
+  font-size: 65px;
+}
+#box{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
 }
 </style>
