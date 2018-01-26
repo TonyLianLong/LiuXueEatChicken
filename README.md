@@ -1,6 +1,6 @@
 # 留学吃鸡知识竞赛
-
-> 一个简单的H5页面，使用了Vue。
+[![Build Status](https://travis-ci.org/TonyLianLong/LiuXueEatChicken.svg?branch=master)](https://travis-ci.org/TonyLianLong/LiuXueEatChicken)
+> 一个简单的H5页面，使用了Vue.js、 vue-router、 Bootstrap Vue和Webpack。
 
 ## Build Setup
 
