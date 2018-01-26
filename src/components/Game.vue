@@ -125,6 +125,7 @@ h1 {
   text-align: center;
 }
 .choice {
+  cursor: pointer;
   font-size: 20px;
   margin-bottom: 5px;
   text-align: center;
