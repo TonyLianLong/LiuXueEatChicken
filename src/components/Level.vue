@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <h1>排行榜</h1>
+    <h1 id="main-title">排行榜</h1>
     <div>
       <table id="level-table">
         <tr>
@@ -78,8 +78,11 @@
           <td>35分5秒</td>
         </tr>
       </table>
+      <div id="banner-bottom">
+        <img src="../assets/banner-bottom.png" />
+      </div>
     </div>
-    <b-button id="back-btn" size="lg" variant="primary" @click="back">
+    <b-button id="back-btn" variant="primary" @click="back">
         返回
     </b-button>
   </div>
@@ -99,21 +102,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.h1 {
-  font-size: 50px;
+#main-title {
+  font-size: 35px;
   text-align: center;
+  margin: 0;
 }
 #level-table {
   width: 100%;
   color: #B32C31;
 }
 #back-btn {
-  margin-left: calc( 50% - 75px );
-  margin-right: calc( 50% - 75px );
-  width: 150px;
-  height: 53px;
-  font-size: 25px;
-  margin-top: 30px;
+  margin-left: calc( 50% - 65px );
+  margin-right: calc( 50% - 65px );
+  width: 130px;
+  height: 40px;
+  font-size: 19px;
+  margin-top: 0px;
 }
 #box{
   display: -webkit-flex; /* Safari */
@@ -122,5 +126,12 @@ export default {
   justify-content: space-between;
   height: 100%;
   text-align: center;
+}
+#banner-bottom {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#banner-bottom img {
+  width: 90%;
 }
 </style>

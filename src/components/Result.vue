@@ -81,6 +81,9 @@
         </tr>
       </table>
     </div>
+    <div id="banner-bottom">
+      <img src="../assets/banner-bottom.png" />
+    </div>
     <b-button id="back-btn" size="lg" variant="primary" @click="back">
         返回
     </b-button>
@@ -126,19 +129,29 @@ h2 {
   font-size: 20px;
   text-align: center;
 }
+#back-btn {
+  margin-left: calc( 50% - 65px );
+  margin-right: calc( 50% - 65px );
+  width: 130px;
+  height: 40px;
+  font-size: 19px;
+  margin-top: 0px;
+}
 #res-txt {
     color: #A53837;
 }
 #level-table {
   width: 100%;
   color: #B32C31;
+  font-size: 14px;
 }
 #back-btn {
-  margin-left: calc( 50% - 75px );
-  margin-right: calc( 50% - 75px );
-  width: 150px;
-  height: 53px;
-  font-size: 25px;
+  margin-left: calc( 50% - 40px );
+  margin-right: calc( 50% - 40px );
+  width: 80px;
+  height: 50px;
+  font-size: 20px;
+  padding: 0px 16px;
   margin-top: 5px;
 }
 #box{
@@ -148,5 +161,12 @@ h2 {
   justify-content: space-between;
   height: 100%;
   text-align: center;
+}
+#banner-bottom {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#banner-bottom img {
+  width: 60%;
 }
 </style>
