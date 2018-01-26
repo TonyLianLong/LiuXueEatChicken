@@ -35,7 +35,7 @@ export default new Router({
     },
     {
       name: 'Result',
-      path: '/result',
+      path: '/result/:correctNum/:time',
       component: Result,
       beforeEnter (to, from, next) {
         console.log(from)
@@ -51,6 +51,11 @@ export default new Router({
       name: 'Level',
       path: '/level',
       component: Level
+    },
+    {
+      name: 'Not Found',
+      path: '*',
+      redirect: '/'
     }
   ]
 })

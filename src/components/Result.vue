@@ -1,6 +1,8 @@
 <template>
   <div id="box">
     <h1>挑战结束</h1>
+    <h2 id="res-txt">答对{{correctNum}}题  用时{{prettifiedTime}}</h2>
+    <h2>排行榜</h2>
     <div>
       <table id="level-table">
         <tr>
@@ -21,61 +23,61 @@
           <td>1</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>30分5秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>2</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>30分10秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>3</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>31分5秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>4</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>32分5秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>5</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>32分10秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>6</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>32分20秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>7</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>32分50秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>8</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>33分5秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>9</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>34分5秒</td>
         </tr>
         <tr>
-          <td>1</td>
+          <td>10</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30min5s</td>
+          <td>35分5秒</td>
         </tr>
       </table>
     </div>
@@ -93,9 +95,22 @@ export default {
       this.$router.go(-2)
     }
   },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  computed: {
+    correctNum() {
+      return this.$route.params.correctNum
+    },
+    time() {
+      return this.$route.params.time
+    },
+    prettifiedTime() {
+      let time = this.$route.params.time
+      if (time < 60) {
+        return time + "秒"
+      } else if(time%60 === 0) {
+        return (time/60) + "分"
+      } else {
+        return Math.floor(time/60) + "分" + time%60 + "秒"
+      }
     }
   }
 }
@@ -103,9 +118,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.h1 {
-  font-size: 50px;
+h1 {
+  font-size: 35px;
   text-align: center;
+}
+h2 {
+  font-size: 20px;
+  text-align: center;
+}
+#res-txt {
+    color: #A53837;
 }
 #level-table {
   width: 100%;
@@ -117,7 +139,7 @@ export default {
   width: 150px;
   height: 53px;
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 #box{
   display: -webkit-flex; /* Safari */
