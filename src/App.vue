@@ -26,13 +26,13 @@ export default {
       let width = window.innerWidth * 0.9
       let height = width * 1.5
       let top = 100
-      if ((height+70) > window.innerHeight) {//screen height is not enough
+      if ((height + 70) > window.innerHeight) { // screen height is not enough
         height = window.innerHeight - 140
         width = height / 1.5
       } else {
         top = (window.innerHeight - height + 70) / 2
       }
-      let left = (window.innerWidth - width)/2
+      let left = (window.innerWidth - width) / 2
       console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
       if (window.innerHeight < 600) {
         width = window.innerWidth

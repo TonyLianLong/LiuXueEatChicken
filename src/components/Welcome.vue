@@ -21,7 +21,7 @@ export default {
       this.$router.push('/game')
     },
     result (event) {
-      this.$router.push('/result')
+      this.$router.push('/level')
     }
   }
 }

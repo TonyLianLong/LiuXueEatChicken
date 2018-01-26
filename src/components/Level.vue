@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <h1>挑战结束</h1>
+    <h1>排行榜</h1>
     <div>
       <table id="level-table">
         <tr>
@@ -80,7 +80,7 @@
       </table>
     </div>
     <b-button id="back-btn" size="lg" variant="primary" @click="back">
-        返回主页
+        返回
     </b-button>
   </div>
 </template>
@@ -90,7 +90,8 @@ export default {
   name: 'Result',
   methods: {
     back () {
-      this.$router.go(-2)
+      // this.$router.push('/')
+      this.$router.go(-1)
     }
   },
   data () {

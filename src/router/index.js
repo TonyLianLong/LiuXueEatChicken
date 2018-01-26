@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
 import Game from '@/components/Game'
+import Level from '@/components/Level'
 import Result from '@/components/Result'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -22,19 +23,34 @@ export default new Router({
       name: 'Game',
       path: '/game',
       component: Game,
-      beforeEnter(to, from, next) {
+      beforeEnter (to, from, next) {
         console.log(from)
-        if(from.name == 'Welcome'){
+        if (from.name === 'Welcome') {
           next()
-        }else{
+        } else {
+          console.log("Invalid Entry to Game");
           next('/')
         }
       }
     },
     {
-      name: 'Resule',
+      name: 'Result',
       path: '/result',
-      component: Result
+      component: Result,
+      beforeEnter (to, from, next) {
+        console.log(from)
+        if (from.name === 'Game') {
+          next()
+        } else {
+          console.log("Invalid Entry to Result");
+          next('/')
+        }
+      }
+    },
+    {
+      name: 'Level',
+      path: '/level',
+      component: Level
     }
   ]
 })
