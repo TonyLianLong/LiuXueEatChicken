@@ -80,7 +80,7 @@
       </table>
     </div>
     <b-button id="back-btn" size="lg" variant="primary" @click="back">
-        返回主页
+        返回
     </b-button>
   </div>
 </template>
