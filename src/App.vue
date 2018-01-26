@@ -1,20 +1,46 @@
 <template>
   <div id="app" v-bind:style="style">
-    <router-view/>
+    <div id="viewport">
+      <router-view/>
+    </div>
     <div id="top" />
+    <div id="notice">
+      <h1>竖起来看效果更好</h1>
+      <img src="./assets/banner-bottom.png" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  computed: {
-    style () {
-      let width = window.innerWidth * 0.9 + 'px'
-      let height = window.innerWidth * 1.5 * 0.9 + 'px'
-      let top = (window.innerHeight - window.innerWidth * 1.5 * 0.9 + 70) / 2 + 'px'
-      let left = window.innerWidth * 0.05 + 'px'
-      return { width, height, top, left }
+  mounted () {
+    window.addEventListener('resize', this.resizeHandler)
+    this.resizeHandler()
+  },
+  data () {
+    return {style: {}}
+  },
+  methods: {
+    resizeHandler () {
+      let width = window.innerWidth * 0.9
+      let height = width * 1.5
+      let top = 100
+      if ((height+70) > window.innerHeight) {//screen height is not enough
+        height = window.innerHeight - 140
+        width = height / 1.5
+      } else {
+        top = (window.innerHeight - height + 70) / 2
+      }
+      let left = (window.innerWidth - width)/2
+      console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
+      if (window.innerHeight < 600) {
+        width = window.innerWidth
+        height = window.innerHeight
+        top = 0
+        left = 0
+      }
+      this.style = { width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }
     }
   }
 }
@@ -23,6 +49,9 @@ export default {
 <style>
 body {
     background-image: url("./assets/bg.png");
+}
+#notice {
+  display: none;
 }
 #app {
   font-family: 'PingFangSC-Light', 'Avenir', Helvetica, Arial, sans-serif;
@@ -49,5 +78,22 @@ body {
   margin-right: 15%;
   height: 100%;
   top: -193px;
+}
+#viewport {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-height: 599px) {
+    #top, #viewport {
+      display: none !important;
+    }
+    #notice {
+      display: block !important;
+      width: 100%;
+      text-align: center;
+      height: 208px;
+      position: absolute;
+      top: calc( 50% - 104px );
+    }
 }
 </style>

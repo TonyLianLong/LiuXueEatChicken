@@ -13,15 +13,26 @@ Vue.use(BootstrapVue)
 export default new Router({
   routes: [
     {
+      name: 'Welcome',
       path: '/',
       alias: '/welcome',
       component: Welcome
     },
     {
+      name: 'Game',
       path: '/game',
-      component: Game
+      component: Game,
+      beforeEnter(to, from, next) {
+        console.log(from)
+        if(from.name == 'Welcome'){
+          next()
+        }else{
+          next('/')
+        }
+      }
     },
     {
+      name: 'Resule',
       path: '/result',
       component: Result
     }
