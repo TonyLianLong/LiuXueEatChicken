@@ -42,8 +42,8 @@ export default {
         left = 0
       }
       this.style = { width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }
-      if(!recalled){
-        setTimeout(()=>{this.resizeHandler(e, true)}, 100) // call the function itself again later to ensure change has happened
+      if (!recalled) {
+        setTimeout(() => { this.resizeHandler(e, true) }, 100) // call the function itself again later to ensure change has happened
       }
     }
   }
