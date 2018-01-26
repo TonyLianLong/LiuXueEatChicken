@@ -122,11 +122,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
 }
 h2 {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
 }
 #back-btn {
@@ -143,14 +143,14 @@ h2 {
 #level-table {
   width: 100%;
   color: #B32C31;
-  font-size: 14px;
+  font-size: 12px;
 }
 #back-btn {
   margin-left: calc( 50% - 40px );
   margin-right: calc( 50% - 40px );
   width: 80px;
-  height: 50px;
-  font-size: 20px;
+  height: 40px;
+  font-size: 16px;
   padding: 0px 16px;
   margin-top: 5px;
 }

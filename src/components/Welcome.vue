@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <h1 id="main-title">头脑风暴</h1>
+    <h1 id="main-title">留学吃鸡</h1>
     <b-button id="start-btn" size="lg" variant="primary" @click="start">
         开始挑战
     </b-button>
