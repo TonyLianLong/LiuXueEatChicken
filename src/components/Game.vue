@@ -115,14 +115,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   text-align: center;
 }
 #sec-col {
   width: 100%;
   height: 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 20px;
   color: #4C040C;
 }
@@ -138,13 +138,14 @@ h1 {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
 .choice {
   cursor: pointer;
-  font-size: 20px;
+  padding: 5px;
+  font-size: 15px;
   margin-bottom: 5px;
   text-align: center;
   border-radius: 10px;

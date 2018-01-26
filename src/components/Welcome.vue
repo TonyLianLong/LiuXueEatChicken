@@ -36,16 +36,16 @@ export default {
   margin-left: calc( 50% - 90px );
   margin-right: calc( 50% - 90px );
   width: 180px;
-  height: 60px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 20px;
   margin-top: 30px;
 }
 #result-btn {
   margin-left: calc( 50% - 90px );
   margin-right: calc( 50% - 90px );
   width: 180px;
-  height: 60px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 20px;
   margin-bottom: 30px;
 }
 #banner-bottom {
@@ -59,7 +59,7 @@ export default {
   font-family: 'PingFangSC-Medium';
   margin-top: 20px;
   text-align: center;
-  font-size: 65px;
+  font-size: 55px;
 }
 #box{
   display: -webkit-flex; /* Safari */
