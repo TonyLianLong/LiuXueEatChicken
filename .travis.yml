@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "6.11.5"
+
+install:
+  - npm i -g yarn && yarn
+
+script: bash ./deploy.sh
+env:
+  global:
+  - ENCRYPTION_LABEL: "c747f8c68b57"
+  - COMMIT_AUTHOR_EMAIL: "1040424979@qq.com"
