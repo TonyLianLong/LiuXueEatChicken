@@ -35,6 +35,7 @@ export default {
       let left = (window.innerWidth - width) / 2
       console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
       if (window.innerHeight < 600) {
+        console.log("Small Screen")
         width = window.innerWidth
         height = window.innerHeight
         top = 0
@@ -83,7 +84,7 @@ body {
   width: 100%;
   height: 100%;
 }
-@media screen and (max-height: 599px) {
+@media screen and (max-height: 415px) {
     #top, #viewport {
       display: none !important;
     }
