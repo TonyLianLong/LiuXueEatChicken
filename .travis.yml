@@ -3,7 +3,7 @@ node_js:
   - "6.11.5"
 
 install:
-  - npm i -g yarn && yarn
+  - npm i -g yarn && rm yarn.lock && yarn
 
 script: bash ./deploy.sh
 env:
