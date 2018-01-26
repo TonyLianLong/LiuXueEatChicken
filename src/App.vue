@@ -8,7 +8,6 @@
       <h1>竖起来看效果更好</h1>
       <img src="./assets/banner-bottom.png" />
     </div>
-    <div style="position: absolute; left:30px; bottom:0">测试版 题目仅供娱乐 不代表任何立场</div>
   </div>
 </template>
 
