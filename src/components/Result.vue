@@ -99,20 +99,20 @@ export default {
     }
   },
   computed: {
-    correctNum() {
+    correctNum () {
       return this.$route.params.correctNum
     },
-    time() {
+    time () {
       return this.$route.params.time
     },
-    prettifiedTime() {
+    prettifiedTime () {
       let time = this.$route.params.time
       if (time < 60) {
-        return time + "秒"
-      } else if(time%60 === 0) {
-        return (time/60) + "分"
+        return time + '秒'
+      } else if (time % 60 === 0) {
+        return (time / 60) + '分'
       } else {
-        return Math.floor(time/60) + "分" + time%60 + "秒"
+        return Math.floor(time / 60) + '分' + time % 60 + '秒'
       }
     }
   }

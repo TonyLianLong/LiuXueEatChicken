@@ -19,6 +19,8 @@
 </template>
 
 <script>
+/* eslint-disable */
+/* TODO: move questions otherwhere*/
 export default {
   name: 'Game',
   mounted () {
