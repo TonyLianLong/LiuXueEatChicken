@@ -66,31 +66,32 @@ export default {
       let tiNum = this.tiRemain.length
       if (tiNum === 0) {
         this.$router.push('/result/'+this.correctNum+'/'+this.second)
-      }
-      let tiIndex
-      if (tiNum < 50) { // less than 50 remain
-        tiIndex = Math.floor(Math.random() * tiNum)
-      } else {
-        tiIndex = Math.floor(Math.random() * tiNum / 3 * 2) // get only the first 2/3
-      }
-      let ti = this.tiRemain[tiIndex]
-      this.tiRemain.splice(tiIndex, 1)
-      if(correct) {
-        this.correctNum ++
-      }
-      if(!init) {
-        this.boxClass = "box-opaque"
-        setTimeout(()=>{
+      }else{
+        let tiIndex
+        if (tiNum < 50) { // less than 50 remain
+          tiIndex = Math.floor(Math.random() * tiNum)
+        } else {
+          tiIndex = Math.floor(Math.random() * tiNum / 3 * 2) // get only the first 2/3
+        }
+        let ti = this.tiRemain[tiIndex]
+        this.tiRemain.splice(tiIndex, 1)
+        if(correct) {
+          this.correctNum ++
+        }
+        if(!init) {
+          this.boxClass = "box-opaque"
+          setTimeout(()=>{
+            this.boxClass = ""
+            this.question = ti[0]
+            this.answers = ti.slice(1, 5)
+            this.correct = Number(ti[5])
+          }, 300)
+        }else{
           this.boxClass = ""
           this.question = ti[0]
           this.answers = ti.slice(1, 5)
           this.correct = Number(ti[5])
-        }, 300)
-      }else{
-        this.boxClass = ""
-        this.question = ti[0]
-        this.answers = ti.slice(1, 5)
-        this.correct = Number(ti[5])
+        }
       }
     },
     clickAnswer (ansNum) {
