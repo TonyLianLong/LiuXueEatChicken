@@ -35,7 +35,7 @@ export default {
       let left = (window.innerWidth - width) / 2
       console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
       if (window.innerHeight < 600) {
-        console.log("Small Screen")
+        console.log('Small Screen')
         width = window.innerWidth
         height = window.innerHeight
         top = 0
