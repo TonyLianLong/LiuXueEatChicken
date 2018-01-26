@@ -28,7 +28,7 @@ export default new Router({
         if (from.name === 'Welcome') {
           next()
         } else {
-          console.log("Invalid Entry to Game");
+          console.log('Invalid Entry to Game')
           next('/')
         }
       }
@@ -42,7 +42,7 @@ export default new Router({
         if (from.name === 'Game') {
           next()
         } else {
-          console.log("Invalid Entry to Result");
+          console.log('Invalid Entry to Result')
           next('/')
         }
       }
