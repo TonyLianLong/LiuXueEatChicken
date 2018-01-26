@@ -22,7 +22,7 @@ export default {
     return {style: {}}
   },
   methods: {
-    resizeHandler () {
+    resizeHandler (e, recalled) {
       let width = window.innerWidth * 0.9
       let height = width * 1.5
       let top = 100
@@ -42,6 +42,9 @@ export default {
         left = 0
       }
       this.style = { width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }
+      if(!recalled){
+        setTimeout(()=>{this.resizeHandler(e, true)}, 100) // call the function itself again later to ensure change has happened
+      }
     }
   }
 }
