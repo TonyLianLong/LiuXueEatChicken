@@ -27,9 +27,22 @@ export default {
     setInterval(this.updateTime, 1000)
     this.nextTi(false, true) // init ti
   },
+  beforeRouteLeave (to, from, next) {
+    if (this.redirect) {
+      next()
+    } else {
+      const answer = window.confirm('确定不玩了吗？')
+      if (answer) {
+        next()
+      } else {
+        next(false)
+      }
+    }
+  },
   data () {
     return {
       second: 0,
+      redirect: false,
       correctNum: 0,
       question: '',
       answers: ['', '', '', ''],
@@ -65,7 +78,7 @@ export default {
     nextTi (correct, init) { // correct: false if skip
       let tiNum = this.tiRemain.length
       if (tiNum === 0) {
-        this.$router.push('/result/'+this.correctNum+'/'+this.second)
+        this.toResult()
       }else{
         let tiIndex
         if (tiNum < 50) { // less than 50 remain
@@ -94,6 +107,10 @@ export default {
         }
       }
     },
+    toResult() {
+      this.redirect = true
+      this.$router.push('/result/'+this.correctNum+'/'+this.second)
+    },
     clickAnswer (ansNum) {
       console.log(ansNum, this.correct)
       if (ansNum === this.correct) {
@@ -101,7 +118,7 @@ export default {
         this.nextTi(true, false)
       } else {
         console.log('not right')
-        this.$router.push('/result/'+this.correctNum+'/'+this.second)
+        this.toResult()
       }
     },
     clickSkip () {
