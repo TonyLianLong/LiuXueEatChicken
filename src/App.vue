@@ -40,7 +40,7 @@ export default {
         height = window.innerHeight
         top = 0
         left = 0
-      } else if(window.innerHeight < 600) {
+      } else if (window.innerHeight < 600) {
         console.log('Small Screen')
         width = window.innerWidth - 20
         height = window.innerHeight - 60
