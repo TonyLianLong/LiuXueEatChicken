@@ -7,7 +7,7 @@
       <div id="ti-num">答对 {{correctNum}} 题</div>
     </div>
     <div id="question">
-      {{question}}
+      <span>{{question}}</span>
     </div>
     <div v-for="(answer, index) in answers" class="choice" @click="clickAnswer(index+1)" :key="index">
       {{answer}}
@@ -157,7 +157,11 @@ h1 {
   margin-right: 5%;
   font-size: 20px;
   margin-bottom: 10px;
-  text-align: justify;
+  text-align: center;
+}
+#question span {
+  display: inline-block;
+  text-align: left !important;
 }
 .choice {
   cursor: pointer;
