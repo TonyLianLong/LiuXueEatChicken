@@ -157,7 +157,7 @@ h1 {
   margin-right: 5%;
   font-size: 20px;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: justify;
 }
 .choice {
   cursor: pointer;
