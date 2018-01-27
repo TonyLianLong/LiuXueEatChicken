@@ -23,23 +23,29 @@ export default {
   },
   methods: {
     resizeHandler (e, recalled) {
-      let width = window.innerWidth * 0.9
-      let height = width * 1.5
-      let top = 100
+      var width = window.innerWidth * 0.9
+      var height = width * 1.5
+      var top = 100
       if ((height + 70) > window.innerHeight) { // screen height is not enough
         height = window.innerHeight - 140
         width = height / 1.5
       } else {
         top = (window.innerHeight - height + 70) / 2
       }
-      let left = (window.innerWidth - width) / 2
+      var left = (window.innerWidth - width) / 2
       console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
-      if (window.innerHeight < 600) {
-        console.log('Small Screen')
+      if (window.innerHeight < 500) {
+        console.log('Really Small Screen')
         width = window.innerWidth
         height = window.innerHeight
         top = 0
         left = 0
+      } else if(window.innerHeight < 600) {
+        console.log('Small Screen')
+        width = window.innerWidth - 20
+        height = window.innerHeight - 60
+        top = 60
+        left = (window.innerWidth - width) / 2
       }
       this.style = { width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }
       if (!recalled) {
@@ -58,7 +64,7 @@ body {
   display: none;
 }
 #app {
-  font-family: 'PingFangSC-Light', 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'PingFangSC-Light', 'SimHei', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #FF883C;
@@ -67,7 +73,7 @@ body {
   background-color: #FFF3E3;
   border-radius: 30px;
   border: solid 5px #C11025;
-  padding: 20px 0;
+  padding: 0 0 20px 0;
   z-index: -999;
 }
 #top {

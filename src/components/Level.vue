@@ -103,20 +103,21 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #main-title {
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
   margin: 0;
 }
 #level-table {
   width: 100%;
+  font-size: 15px;
   color: #B32C31;
 }
 #back-btn {
-  margin-left: calc( 50% - 65px );
-  margin-right: calc( 50% - 65px );
-  width: 130px;
-  height: 40px;
-  font-size: 19px;
+  margin-left: calc( 50% - 45px );
+  margin-right: calc( 50% - 45px );
+  width: 80px;
+  height: 35px;
+  font-size: 15px;
   margin-top: 0px;
 }
 #box{
@@ -132,6 +133,6 @@ export default {
   margin-bottom: 0px;
 }
 #banner-bottom img {
-  width: 90%;
+  width: 80%;
 }
 </style>
