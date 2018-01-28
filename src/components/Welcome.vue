@@ -57,7 +57,7 @@ export default {
 }
 #main-title {
   font-family: 'PingFangSC-Medium';
-  margin-top: 20px;
+  margin-top: 50px;
   text-align: center;
   font-size: 55px;
 }
