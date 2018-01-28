@@ -3,7 +3,7 @@
   <div id="box" :class="boxClass">
     <h1>挑战者：AQ</h1>
     <div id="sec-col">
-      <div id="used-sec">已用 {{second}} 秒</div>
+      <div id="used-sec">还剩 {{remSecond}} 秒</div>
       <div id="ti-num">答对 {{correctNum}} 题</div>
     </div>
     <div id="question">
@@ -42,6 +42,7 @@ export default {
   data () {
     return {
       second: 0,
+      remSecond: 30,
       redirect: false,
       correctNum: 0,
       question: '',
@@ -56,7 +57,7 @@ export default {
   ["主文书务必避免的做法是什么？","他人代写或弄虚作假","细节描写，场景描写","人物内心表现","声明自己兴趣和未来规划",3  ],
   ["新SAT满分多少？","900","1500","1600","2400",3  ],
   ["ACT考试时间一般多久？","一天","连续3天，每天两科目","半天","看个人速度，可提前交卷离开",3  ],
-  ["ACT和SAT的共同点或不同点：","ACT是美国高考，SAT是英国高考","ACT有科学推理，SAT没有","SAT比ACT难，是ACT的进阶考试","SAT考试时间更短对速度要求高，",2  ],
+  ["ACT和SAT的共同点或不同点：","ACT是美国高考，SAT是英国高考","ACT有科学推理，SAT没有","SAT比ACT难，是ACT的进阶考试","SAT考试时间更短对速度要求高",2  ],
   ["TOEFL考试遇到听力或阅读加试的几率大概多少：","偶尔会遇到","几乎每次都会遇到","托福没有加试","遇到的几率比写作加试几率低",1  ],
   ["以下哪种考试不适用于本科出国申请？","托福","ACT","SAT","GRE",4  ],
   ["AP考试在每年的几月份进行？","5月","6月","9月","12月",1  ],
@@ -74,12 +75,18 @@ export default {
   methods: {
     updateTime () {
       this.second++
+      this.remSecond--
+      if (this.remSecond == 0) {
+        // Time is up
+        this.toResult()
+      }
     },
     nextTi (correct, init) { // correct: false if skip
+      this.remSecond = 30
       let tiNum = this.tiRemain.length
       if (tiNum === 0) {
         this.toResult()
-      }else{
+      } else {
         let tiIndex
         if (tiNum < 50) { // less than 50 remain
           tiIndex = Math.floor(Math.random() * tiNum)
@@ -88,10 +95,10 @@ export default {
         }
         let ti = this.tiRemain[tiIndex]
         this.tiRemain.splice(tiIndex, 1)
-        if(correct) {
+        if (correct) {
           this.correctNum ++
         }
-        if(!init) {
+        if (!init) {
           this.boxClass = "box-opaque"
           setTimeout(()=>{
             this.boxClass = ""
@@ -99,7 +106,7 @@ export default {
             this.answers = ti.slice(1, 5)
             this.correct = Number(ti[5])
           }, 300)
-        }else{
+        } else {
           this.boxClass = ""
           this.question = ti[0]
           this.answers = ti.slice(1, 5)
