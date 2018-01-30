@@ -79,7 +79,7 @@
 
 <script>
 export default {
-  name: 'Level Table'
+  name: 'LevelTable'
 }
 </script>
 
