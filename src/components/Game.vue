@@ -21,18 +21,21 @@
 <script>
 /* eslint-disable */
 /* TODO: move questions otherwhere*/
+import audios from 'audios'
 export default {
   name: 'Game',
   mounted () {
-    setInterval(this.updateTime, 1000)
+    this.updateTimeIntervel = setInterval(this.updateTime, 1000)
     this.nextTi(false, true) // init ti
   },
   beforeRouteLeave (to, from, next) {
     if (this.redirect) {
+      clearInterval(this.updateTimeIntervel)
       next()
     } else {
       const answer = window.confirm('确定不玩了吗？')
       if (answer) {
+        clearInterval(this.updateTimeIntervel)
         next()
       } else {
         next(false)
@@ -41,6 +44,7 @@ export default {
   },
   data () {
     return {
+      countdownAudio: new Audio(audios.countdown),
       second: 0,
       remSecond: 30,
       redirect: false,
@@ -76,12 +80,18 @@ export default {
     updateTime () {
       this.second++
       this.remSecond--
+      if (this.remSecond == 10) {
+        this.countdownAudio.currentTime = 0
+        this.countdownAudio.play()
+        console.log("Play countdown")
+      }
       if (this.remSecond == 0) {
         // Time is up
         this.toResult()
       }
     },
     nextTi (correct, init) { // correct: false if skip
+      this.countdownAudio.pause()
       this.remSecond = 30
       let tiNum = this.tiRemain.length
       if (tiNum === 0) {
@@ -122,8 +132,10 @@ export default {
       console.log(ansNum, this.correct)
       if (ansNum === this.correct) {
         console.log('correct')
+        new Audio(audios.right).play()
         this.nextTi(true, false)
       } else {
+        new Audio(audios.wrong).play()
         console.log('not right')
         this.toResult()
       }

@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <h1>挑战结束</h1>
+    <h1>{{title}}</h1>
     <h2 id="res-txt">答对{{correctNum}}题  用时{{prettifiedTime}}</h2>
     <h2>排行榜</h2>
     <LevelTable />
@@ -14,17 +14,26 @@
 </template>
 
 <script>
+import audios from 'audios'
 import LevelTable from 'components/LevelTable'
 export default {
   name: 'Result',
   methods: {
     back () {
+      new Audio(audios.clickButton).play()
       this.$router.go(-2)
     }
   },
   computed: {
     correctNum () {
       return this.$route.params.correctNum
+    },
+    title () {
+      if(Number(this.$route.params.correctNum) === 150){
+        return '挑战成功'
+      }else{
+        return '挑战结束'
+      }
     },
     time () {
       return this.$route.params.time

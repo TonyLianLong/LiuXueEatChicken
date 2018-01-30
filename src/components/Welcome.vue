@@ -14,13 +14,16 @@
 </template>
 
 <script>
+import audios from 'audios'
 export default {
   name: 'Welcome',
   methods: {
     start (event) {
+      new Audio(audios.startChallenge).play()
       this.$router.push('/game')
     },
     result (event) {
+      new Audio(audios.clickButton).play()
       this.$router.push('/level')
     }
   }

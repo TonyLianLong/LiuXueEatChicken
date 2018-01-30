@@ -12,12 +12,14 @@
 </template>
 
 <script>
+import audios from 'audios'
 import LevelTable from 'components/LevelTable'
 export default {
   name: 'Result',
   methods: {
     back () {
       // this.$router.push('/')
+      new Audio(audios.clickButton).play()
       this.$router.go(-1)
     }
   },
