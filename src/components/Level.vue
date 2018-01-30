@@ -78,9 +78,9 @@
           <td>35分5秒</td>
         </tr>
       </table>
-      <div id="banner-bottom">
-        <img src="../assets/banner-bottom.png" />
-      </div>
+    </div>
+    <div id="banner-bottom">
+      <img src="../assets/banner-bottom.png" />
     </div>
     <b-button id="back-btn" variant="primary" @click="back">
         返回
