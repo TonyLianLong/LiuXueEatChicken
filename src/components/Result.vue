@@ -29,9 +29,9 @@ export default {
       return this.$route.params.correctNum
     },
     title () {
-      if(Number(this.$route.params.correctNum) === 150){
+      if (Number(this.$route.params.correctNum) === 150) {
         return '挑战成功'
-      }else{
+      } else {
         return '挑战结束'
       }
     },
