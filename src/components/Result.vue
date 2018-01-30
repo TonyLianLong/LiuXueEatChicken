@@ -23,7 +23,7 @@
           <td>1</td>
           <td>AQ</td>
           <td>150</td>
-          <td>30分5秒</td>
+          <td>30分05秒</td>
         </tr>
         <tr>
           <td>2</td>
@@ -35,13 +35,13 @@
           <td>3</td>
           <td>AQ</td>
           <td>150</td>
-          <td>31分5秒</td>
+          <td>31分05秒</td>
         </tr>
         <tr>
           <td>4</td>
           <td>AQ</td>
           <td>150</td>
-          <td>32分5秒</td>
+          <td>32分05秒</td>
         </tr>
         <tr>
           <td>5</td>
@@ -65,19 +65,19 @@
           <td>8</td>
           <td>AQ</td>
           <td>150</td>
-          <td>33分5秒</td>
+          <td>33分05秒</td>
         </tr>
         <tr>
           <td>9</td>
           <td>AQ</td>
           <td>150</td>
-          <td>34分5秒</td>
+          <td>34分05秒</td>
         </tr>
         <tr>
           <td>10</td>
           <td>AQ</td>
           <td>150</td>
-          <td>35分5秒</td>
+          <td>35分05秒</td>
         </tr>
       </table>
     </div>
