@@ -3,84 +3,7 @@
     <h1>挑战结束</h1>
     <h2 id="res-txt">答对{{correctNum}}题  用时{{prettifiedTime}}</h2>
     <h2>排行榜</h2>
-    <div>
-      <table id="level-table">
-        <tr>
-          <th>
-            名次
-          </th>
-          <th>
-            昵称
-          </th>
-          <th>
-            答对题数
-          </th>
-          <th>
-            用时
-          </th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>30分05秒</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>30分10秒</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>31分05秒</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分05秒</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分10秒</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分20秒</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分50秒</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>33分05秒</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>34分05秒</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>35分05秒</td>
-        </tr>
-      </table>
-    </div>
+    <LevelTable />
     <div id="banner-bottom">
       <img src="../assets/banner-bottom.png" />
     </div>
@@ -91,6 +14,7 @@
 </template>
 
 <script>
+import LevelTable from 'components/LevelTable'
 export default {
   name: 'Result',
   methods: {
@@ -115,6 +39,9 @@ export default {
         return Math.floor(time / 60) + '分' + time % 60 + '秒'
       }
     }
+  },
+  components: {
+    LevelTable
   }
 }
 </script>
@@ -139,11 +66,6 @@ h2 {
 }
 #res-txt {
     color: #A53837;
-}
-#level-table {
-  width: 100%;
-  color: #B32C31;
-  font-size: 12px;
 }
 #back-btn {
   margin-left: calc( 50% - 40px );

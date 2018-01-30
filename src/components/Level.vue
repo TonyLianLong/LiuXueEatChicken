@@ -1,84 +1,7 @@
 <template>
   <div id="box">
     <h1 id="main-title">排行榜</h1>
-    <div>
-      <table id="level-table">
-        <tr>
-          <th>
-            名次
-          </th>
-          <th>
-            昵称
-          </th>
-          <th>
-            答对题数
-          </th>
-          <th>
-            用时
-          </th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>30分05秒</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>30分10秒</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>31分05秒</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分05秒</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分10秒</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分20秒</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>32分50秒</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>33分05秒</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>34分05秒</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>AQ</td>
-          <td>150</td>
-          <td>35分05秒</td>
-        </tr>
-      </table>
-    </div>
+    <LevelTable />
     <div id="banner-bottom">
       <img src="../assets/banner-bottom.png" />
     </div>
@@ -89,6 +12,7 @@
 </template>
 
 <script>
+import LevelTable from 'components/LevelTable'
 export default {
   name: 'Result',
   methods: {
@@ -96,6 +20,9 @@ export default {
       // this.$router.push('/')
       this.$router.go(-1)
     }
+  },
+  components: {
+    LevelTable
   }
 }
 </script>
