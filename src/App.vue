@@ -8,10 +8,16 @@
       <h1>竖起来看效果更好</h1>
       <img src="./assets/banner-bottom.png" />
     </div>
+    <AudioPreloader v-for="audio in audios" :filepath="audio" :key="audio">
+    </AudioPreloader>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import AudioPreloader from 'components/AudioPreloader'
+import audios from 'audios'
+
 export default {
   name: 'App',
   mounted () {
@@ -19,8 +25,10 @@ export default {
     this.resizeHandler()
   },
   data () {
-    return {style: {}}
+    return {style: {},
+      audios}
   },
+  components: { AudioPreloader },
   methods: {
     resizeHandler (e, recalled) {
       var width = window.innerWidth * 0.9
