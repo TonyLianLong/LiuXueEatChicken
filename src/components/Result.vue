@@ -3,7 +3,8 @@
     <h1>{{title}}</h1>
     <h2 id="res-txt">答对{{correctNum}}题  用时{{prettifiedTime}}</h2>
     <h2>排行榜</h2>
-    <LevelTable />
+    <LevelTable :items="items" />
+    <p v-if="token" class="veriCode"><b>上榜凭证码 {{token}} 请将本页截图保存</b><br/>留在榜上直到活动结束可以凭截图领取红包哦</p>
     <div id="banner-bottom">
       <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUyOTU2OTUwNQ==&scene=124#wechat_redirect">
         <img src="../assets/banner-bottom.png" />
@@ -42,11 +43,41 @@
 import audios from 'audios'
 import LevelTable from 'components/LevelTable'
 import logo from 'assets/logo.jpg'
+import utils from 'utils'
 export default {
   name: 'Result',
   mounted () {
-    var correctNum = this.correctNum
     var that = this
+    var correctNum = this.correctNum
+    var time = this.time
+    utils.getLevel({}, function (response) {
+      console.log(response)
+      if (typeof response.data.items !== 'object') {
+        // something went wrong
+        return
+      }
+      var items = that.items = response.data.items
+      var lastItem = items[items.length - 1]
+      var name
+      if (lastItem === undefined || lastItem.correctNum < that.correctNum ||
+        (lastItem.correctNum === that.correctNum && lastItem.time > that.time)) {
+        name = prompt('你上榜啦，告诉我们你的昵称吧：')
+        if (name === null || name === '') {
+          name = '不知名用户'
+        }
+        utils.getLevel({name, time, correctNum}, function (response) {
+          console.log(response)
+          that.items = response.data.items
+          that.token = response.data.token
+        })
+      } else {
+        name = '不知名用户'
+        utils.getLevel({name, time, correctNum}, function (response) {
+          console.log(response)
+          that.items = response.data.items
+        })
+      }
+    })
     wx.ready(function () {
       wx.onMenuShareAppMessage({
         title: '跟我一起PK留学知识',
@@ -83,7 +114,7 @@ export default {
   },
   data () {
     var cjCode = Date.parse(new Date()) + Math.floor(Math.random() * 10000)
-    return {cjShowed: false, cjCode: cjCode}
+    return {cjShowed: false, cjCode: cjCode, items: [], token: ''}
   },
   methods: {
     back () {
@@ -107,17 +138,17 @@ export default {
   },
   computed: {
     correctNum () {
-      return this.$route.params.correctNum
+      return Number(this.$route.params.correctNum)
     },
     title () {
-      if (Number(this.$route.params.correctNum) === 150) {
+      if (this.correctNum === 150) {
         return '挑战成功'
       } else {
         return '挑战结束'
       }
     },
     time () {
-      return this.$route.params.time
+      return Number(this.$route.params.time)
     },
     prettifiedTime () {
       let time = this.$route.params.time
@@ -146,6 +177,11 @@ h1 {
 h2 {
   font-size: 18px;
   text-align: center;
+}
+.veriCode {
+  width: 96%;
+  margin: 0 2%;
+  font-size: 15px;
 }
 #back-btn {
   margin-left: calc( 50% - 65px );
@@ -189,7 +225,7 @@ h2 {
   width: 100%;
   text-align: right;
   img {
-    width: 50%;
+    width: 200px;
   }
 }
 #close-btn {

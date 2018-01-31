@@ -14,72 +14,24 @@
       用时
     </th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>30分05秒</td>
+  <tr v-if="items.length === 0">
+    <td colspan="4">
+      排行榜加载中
+    </td>
   </tr>
-  <tr>
-    <td>2</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>30分10秒</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>31分05秒</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>32分05秒</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>32分10秒</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>32分20秒</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>32分50秒</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>33分05秒</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>34分05秒</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>AQ</td>
-    <td>150</td>
-    <td>35分05秒</td>
+  <tr v-for="(item, index) in items" :key="index">
+    <td>{{index+1}}</td>
+    <td>{{item["name"]}}</td>
+    <td>{{item["correctNum"]}}</td>
+    <td>{{item["time"]}}</td>
   </tr>
 </table>
 </template>
 
 <script>
 export default {
-  name: 'LevelTable'
+  name: 'LevelTable',
+  props: {items: {type: Array, required: true}}
 }
 </script>
 

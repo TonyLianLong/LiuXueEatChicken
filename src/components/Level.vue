@@ -1,7 +1,7 @@
 <template>
   <div id="box">
     <h1 id="main-title">排行榜</h1>
-    <LevelTable />
+    <LevelTable :items="items" />
     <div id="banner-bottom">
       <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUyOTU2OTUwNQ==&scene=124#wechat_redirect">
         <img src="../assets/banner-bottom.png" />
@@ -16,14 +16,25 @@
 <script>
 import audios from 'audios'
 import LevelTable from 'components/LevelTable'
+import utils from 'utils'
 export default {
   name: 'Result',
+  mounted () {
+    var that = this
+    utils.getLevel({}, function (response) {
+      console.log(response)
+      that.items = response.data.items
+    })
+  },
   methods: {
     back () {
       // this.$router.push('/')
       new Audio(audios.clickButton).play()
       this.$router.go(-1)
     }
+  },
+  data () {
+    return {items: []}
   },
   components: {
     LevelTable
