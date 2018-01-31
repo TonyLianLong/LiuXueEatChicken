@@ -26,6 +26,9 @@
     <b-button id="back-btn" size="lg" variant="primary" @click="back">
         返回
     </b-button>
+    <div id="cj-notice">
+      <img src="../assets/guide.png" />
+    </div>
   </div>
 </template>
 
@@ -37,16 +40,17 @@ export default {
   name: 'Result',
   mounted () {
     var correctNum = this.correctNum
+    var that = this
     wx.ready(function () {
       wx.onMenuShareAppMessage({
         title: '跟我一起PK留学知识',
         desc: '我对了' + correctNum + '题，你呢？',
-        link: this.wxProcessLink('/'),
-        imgUrl: this.wxProcessLink(logo),
+        link: that.wxProcessLink('/'),
+        imgUrl: that.wxProcessLink(logo),
         trigger: function (res) {
         },
         success: function (res) {
-          this.cj()
+          that.cj()
         },
         cancel: function (res) {
         },
@@ -55,13 +59,13 @@ export default {
         }
       })
       wx.onMenuShareTimeline({
-        title: '跟我一起PK留学知识吧，我对了' + this.correctNum + '题，你呢？',
-        link: this.wxProcessLink('/'),
-        imgUrl: this.wxProcessLink(logo),
+        title: '跟我一起PK留学知识吧，我对了' + correctNum + '题，你呢？',
+        link: that.wxProcessLink('/'),
+        imgUrl: that.wxProcessLink(logo),
         trigger: function (res) {
         },
         success: function (res) {
-          this.cj()
+          that.cj()
         },
         cancel: function (res) {
         },
@@ -170,6 +174,16 @@ h2 {
   margin-bottom: 0px;
   img {
     width: 60%;
+  }
+}
+#cj-notice {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  img {
+    width: 50%;
   }
 }
 #close-btn {
