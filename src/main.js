@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import logo from 'assets/logo.jpg'
-import utils from 'utils'
+// import utils from 'utils'
 // window.utils = utils
 
 Vue.config.productionTip = false
