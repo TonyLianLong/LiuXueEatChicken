@@ -56,7 +56,7 @@ export default {
 }
 #rule-btn {
   position: absolute;
-  right: 30px;
+  right: 20px;
   top: 20px;
 }
 #banner-bottom {
