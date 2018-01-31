@@ -5,7 +5,9 @@
     <h2>排行榜</h2>
     <LevelTable />
     <div id="banner-bottom">
-      <img src="../assets/banner-bottom.png" />
+      <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUyOTU2OTUwNQ==&scene=124#wechat_redirect">
+        <img src="../assets/banner-bottom.png" />
+      </a>
     </div>
     <div class="hid" v-if="cjShowed">
     </div>
@@ -14,7 +16,11 @@
       <p>恭喜您转发成功，获得一次抽奖机会！</p>
       <p>请先<b>将本页截图</b>，长按<b>扫描屏幕下方二维码</b>，进入XMOC微信公众号，发送“抽奖”二字获取具体流程。</p>
       <p>本活动将在2月21日晚九点在公众号“中学生留学就这YOUNG”开奖，届时邀请您前来关注哦～</p>
-      <p style="text-align:center;"><img src="../assets/qrcode.png" /></p>
+      <p style="text-align:center;">
+        <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUyOTU2OTUwNQ==&scene=124#wechat_redirect">
+          <img src="../assets/qrcode.png" />
+        </a>
+      </p>
       <p style="text-align:center;">随机抽奖码：{{cjCode}}</p>
       <div id="close-btn" @click="hideCjPanel">
         <svg t="1517390654710" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1865" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">

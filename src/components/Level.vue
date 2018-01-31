@@ -3,7 +3,9 @@
     <h1 id="main-title">排行榜</h1>
     <LevelTable />
     <div id="banner-bottom">
-      <img src="../assets/banner-bottom.png" />
+      <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUyOTU2OTUwNQ==&scene=124#wechat_redirect">
+        <img src="../assets/banner-bottom.png" />
+      </a>
     </div>
     <b-button id="back-btn" variant="primary" @click="back">
         返回
