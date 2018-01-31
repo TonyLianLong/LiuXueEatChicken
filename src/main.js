@@ -26,34 +26,27 @@ wx.ready(function () {
     link: wxProcessLink('/'),
     imgUrl: wxProcessLink(logo),
     trigger: function (res) {
-      // alert('用户点击发送给朋友');
     },
     success: function (res) {
-      // alert('已分享');
     },
     cancel: function (res) {
-      // alert('已取消');
     },
     fail: function (res) {
-      // alert(JSON.stringify(res));
+      alert('分享失败了，再试一次吧')
     }
   })
-
   wx.onMenuShareTimeline({
     title: '留学吃鸡小游戏',
     link: wxProcessLink('/'),
     imgUrl: wxProcessLink(logo),
     trigger: function (res) {
-      // alert('用户点击分享到朋友圈');
     },
     success: function (res) {
-      // alert('已分享');
     },
     cancel: function (res) {
-      // alert('已取消');
     },
     fail: function (res) {
-      // alert(JSON.stringify(res));
+      alert('分享失败了，再试一次吧')
     }
   })
 })
