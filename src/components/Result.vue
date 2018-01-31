@@ -220,12 +220,12 @@ h2 {
 }
 #cj-notice {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 10px;
   width: 100%;
   text-align: right;
   img {
-    width: 200px;
+    width: 250px;
   }
 }
 #close-btn {
