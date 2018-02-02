@@ -82,8 +82,8 @@ export default {
       wx.onMenuShareAppMessage({
         title: '跟我一起PK留学知识',
         desc: '我对了' + correctNum + '题，你呢？',
-        link: that.wxProcessLink('/'),
-        imgUrl: that.wxProcessLink(logo),
+        link: window.sharedLink,
+        imgUrl: utils.wxProcessLink(logo),
         trigger: function (res) {
         },
         success: function (res) {
@@ -97,8 +97,8 @@ export default {
       })
       wx.onMenuShareTimeline({
         title: '跟我一起PK留学知识吧，我对了' + correctNum + '题，你呢？',
-        link: that.wxProcessLink('/'),
-        imgUrl: that.wxProcessLink(logo),
+        link: window.sharedLink,
+        imgUrl: utils.wxProcessLink(logo),
         trigger: function (res) {
         },
         success: function (res) {
@@ -120,11 +120,6 @@ export default {
     back () {
       new Audio(audios.clickButton).play()
       this.$router.go(-2)
-    },
-    wxProcessLink (link) {
-      if (link.indexOf('/') === 0) {
-        return 'http://xmoclxcj.duapp.com' + link
-      }
     },
     cj () {
       if (this.cjShowed === true) {

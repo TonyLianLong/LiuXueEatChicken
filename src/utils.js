@@ -7,8 +7,17 @@ export default {
     alert('获取排行榜出错了 ' + error)
   }) {
     console.log('Sending getLevel request', params)
-    return axios.post('https://xmoclxcj.duapp.com/leveltable.php', params)
+    return axios.post('https://server2.tonylian.com/leveltable.php', params)
       .then(success)
       .catch(fail)
+  },
+  getUrlKey (name) {
+    // eslint-disable-next-line
+    return decodeURIComponent((new RegExp('[?|&]'+name+'='+'([^&;]+?)(&|#|;|$)').exec(location.href)||[,""])[1].replace(/\+/g,'%20'))||null
+  },
+  wxProcessLink (link) {
+    if (link.indexOf('/') === 0) {
+      return 'http://lxcj.applinzi.com' + link
+    }
   }
 }

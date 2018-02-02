@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import logo from 'assets/logo.jpg'
-// import utils from 'utils'
+import utils from 'utils'
 // window.utils = utils
 
 Vue.config.productionTip = false
@@ -16,17 +16,21 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-function wxProcessLink (link) {
-  if (link.indexOf('/') === 0) {
-    return 'http://xmoclxcj.duapp.com' + link
-  }
+var from = utils.getUrlKey('from')
+if (from) {
+  console.log('Invited from ' + from)
+  window.sharedLink = utils.wxProcessLink('/?from=' + from)
+} else {
+  console.log('Not invited')
+  window.sharedLink = utils.wxProcessLink('/')
 }
+
 wx.ready(function () {
   wx.onMenuShareAppMessage({
     title: '留学吃鸡小游戏',
     desc: '留学圈最火的一个知识竞赛小游戏',
-    link: wxProcessLink('/'),
-    imgUrl: wxProcessLink(logo),
+    link: window.sharedLink,
+    imgUrl: utils.wxProcessLink(logo),
     trigger: function (res) {
     },
     success: function (res) {
@@ -39,8 +43,8 @@ wx.ready(function () {
   })
   wx.onMenuShareTimeline({
     title: '留学吃鸡小游戏',
-    link: wxProcessLink('/'),
-    imgUrl: wxProcessLink(logo),
+    link: window.sharedLink,
+    imgUrl: utils.wxProcessLink(logo),
     trigger: function (res) {
     },
     success: function (res) {
