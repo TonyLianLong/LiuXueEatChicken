@@ -68,6 +68,10 @@ export default {
 body {
     background-image: url("./assets/bg.png");
 }
+html, body{
+  width: 100%;
+  height: 100%;
+}
 #notice {
   display: none;
 }
@@ -82,10 +86,10 @@ body {
   border-radius: 30px;
   border: solid 5px #C11025;
   padding: 0 0 20px 0;
-  z-index: -999;
+  z-index: 199;
 }
 #top {
-  z-index: -998;
+  z-index: -100;
   position: absolute;
   background-repeat: no-repeat;
   background-position: top;
