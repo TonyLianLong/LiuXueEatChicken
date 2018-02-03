@@ -27,8 +27,8 @@ if (from) {
 
 wx.ready(function () {
   wx.onMenuShareAppMessage({
-    title: '留学吃鸡小游戏',
-    desc: '留学圈最火的一个知识竞赛小游戏',
+    title: '留学吃鸡 | 跟我一起PK留学知识',
+    desc: '留学圈最火的知识竞赛小游戏',
     link: window.sharedLink,
     imgUrl: utils.wxProcessLink(logo),
     trigger: function (res) {
@@ -42,7 +42,7 @@ wx.ready(function () {
     }
   })
   wx.onMenuShareTimeline({
-    title: '留学吃鸡小游戏',
+    title: '留学吃鸡 | 跟我一起PK留学知识',
     link: window.sharedLink,
     imgUrl: utils.wxProcessLink(logo),
     trigger: function (res) {
