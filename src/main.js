@@ -32,12 +32,13 @@ try {
   if (typeof AudioContext !== 'undefined') {
     window.ctx = new AudioContext()
   } else if (typeof webkitAudioContext !== 'undefined') {
+    // eslint-disable-next-line
     window.ctx = new webkitAudioContext()
   } else {
     window.usingWebAudio = false
   }
-} catch(e) {
-    window.usingWebAudio = false
+} catch (e) {
+  window.usingWebAudio = false
 }
 
 // context state at this time is `undefined` in iOS8 Safari
@@ -55,7 +56,7 @@ if (window.usingWebAudio && window.ctx.state === 'suspended') {
     }, 0)
   }
   document.body.addEventListener('touchend', resume, false)
-}else{
+} else {
   console.log('No unmute needed')
 }
 
