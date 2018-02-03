@@ -25,6 +25,40 @@ if (from) {
   window.sharedLink = utils.wxProcessLink('/')
 }
 
+// unmute audio for iOS Safari from https://gist.github.com/laziel/7aefabe99ee57b16081c
+window.ctx = null
+window.usingWebAudio = true
+try {
+  if (typeof AudioContext !== 'undefined') {
+    window.ctx = new AudioContext()
+  } else if (typeof webkitAudioContext !== 'undefined') {
+    window.ctx = new webkitAudioContext()
+  } else {
+    window.usingWebAudio = false
+  }
+} catch(e) {
+    window.usingWebAudio = false
+}
+
+// context state at this time is `undefined` in iOS8 Safari
+if (window.usingWebAudio && window.ctx.state === 'suspended') {
+  console.log('Will unmute')
+  window.ctx.resume()
+  var resume = function () {
+    window.ctx.resume()
+    console.log('Unmuting')
+    setTimeout(function () {
+      if (window.ctx.state === 'running') {
+        document.body.removeEventListener('touchend', resume, false)
+        console.log('Unmuted')
+      }
+    }, 0)
+  }
+  document.body.addEventListener('touchend', resume, false)
+}else{
+  console.log('No unmute needed')
+}
+
 wx.ready(function () {
   wx.onMenuShareAppMessage({
     title: '留学吃鸡 | 跟我一起PK留学知识',

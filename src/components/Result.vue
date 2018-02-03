@@ -118,6 +118,7 @@ export default {
   },
   methods: {
     back () {
+      window.ctx.resume()
       new Audio(audios.clickButton).play()
       this.$router.go(-2)
     },

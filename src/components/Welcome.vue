@@ -24,10 +24,12 @@ export default {
   name: 'Welcome',
   methods: {
     start (event) {
+      window.ctx.resume()
       new Audio(audios.startChallenge).play()
       this.$router.push('/game')
     },
     result (event) {
+      window.ctx.resume()
       new Audio(audios.clickButton).play()
       this.$router.push('/level')
     }

@@ -65,6 +65,7 @@ export default {
       this.remSecond--
       if (this.remSecond == 10) {
         this.countdownAudio.currentTime = 0
+        window.ctx.resume()
         this.countdownAudio.play()
         console.log("Play countdown")
       }
@@ -115,9 +116,11 @@ export default {
       console.log(ansNum, this.correct)
       if (ansNum === this.correct) {
         console.log('correct')
+        window.ctx.resume()
         new Audio(audios.right).play()
         this.nextTi(true, false)
       } else {
+        window.ctx.resume()
         new Audio(audios.wrong).play()
         console.log('not right')
         this.toResult()

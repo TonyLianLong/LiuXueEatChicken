@@ -29,6 +29,7 @@ export default {
   methods: {
     back () {
       // this.$router.push('/')
+      window.ctx.resume()
       new Audio(audios.clickButton).play()
       this.$router.go(-1)
     }
