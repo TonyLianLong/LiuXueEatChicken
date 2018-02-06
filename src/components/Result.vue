@@ -43,6 +43,7 @@
 import audios from 'audios'
 import LevelTable from 'components/LevelTable'
 import logo from 'assets/logo.jpg'
+import questions from 'questions'
 import utils from 'utils'
 export default {
   name: 'Result',
@@ -50,7 +51,12 @@ export default {
     var that = this
     var correctNum = this.correctNum
     var time = this.time
-    utils.getLevel({}, function (response) {
+    if (this.correctNum === questions.length) {
+      this.title = '挑战成功'
+    } else {
+      this.title = '挑战结束'
+    }
+    /* utils.getLevel({}, function (response) {
       console.log(response)
       if (typeof response.data.items !== 'object') {
         // something went wrong
@@ -76,6 +82,31 @@ export default {
           console.log(response)
           that.items = response.data.items
         })
+      }
+    }) */
+    var name = prompt('挑战结束，告诉我们你想留的昵称吧：')
+    if (name === null || name === '') {
+      name = '不知名用户'
+    }
+    utils.getLevel({name, time, correctNum}, function (response) {
+      console.log(response)
+      if (typeof response.data.items !== 'object') {
+        alert('出了点问题，排行榜没获取成功')
+        return
+      }
+      var items = that.items = response.data.items
+      var lastItem = items[items.length - 1]
+      if (lastItem === undefined || lastItem.correctNum < that.correctNum ||
+        (lastItem.correctNum === that.correctNum && lastItem.time > that.time)) {
+        that.items = response.data.items
+        that.token = response.data.token
+        that.title = '恭喜上榜'
+      } else {
+        if (that.correctNum === questions.length) {
+          that.title = '挑战成功'
+        } else {
+          that.title = '再接再厉'
+        }
       }
     })
     wx.ready(function () {
@@ -114,7 +145,7 @@ export default {
   },
   data () {
     var cjCode = Date.parse(new Date()) + Math.floor(Math.random() * 10000)
-    return {cjShowed: false, cjCode: cjCode, items: [], token: ''}
+    return {cjShowed: false, cjCode: cjCode, items: [], token: '', title: ''}
   },
   methods: {
     back () {
@@ -135,13 +166,6 @@ export default {
   computed: {
     correctNum () {
       return Number(this.$route.params.correctNum)
-    },
-    title () {
-      if (this.correctNum === 150) {
-        return '挑战成功'
-      } else {
-        return '挑战结束'
-      }
     },
     time () {
       return Number(this.$route.params.time)
@@ -221,7 +245,7 @@ h2 {
   width: 100%;
   text-align: right;
   img {
-    width: 250px;
+    width: 90%;
   }
 }
 #close-btn {
