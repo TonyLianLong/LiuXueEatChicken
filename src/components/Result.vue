@@ -246,6 +246,7 @@ h2 {
   text-align: right;
   img {
     width: 90%;
+    max-width: 500px;
   }
 }
 #close-btn {
