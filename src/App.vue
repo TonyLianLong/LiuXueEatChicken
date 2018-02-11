@@ -41,7 +41,6 @@ export default {
         top = (window.innerHeight - height + 70) / 2
       }
       var left = (window.innerWidth - width) / 2
-      console.log({ width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' })
       if (window.innerHeight < 500) {
         console.log('Really Small Screen')
         width = window.innerWidth
@@ -55,7 +54,7 @@ export default {
         top = 60
         left = (window.innerWidth - width) / 2
       }
-      this.style = { width: width + 'px', height: height + 'px', top: top + 'px', left: left + 'px' }
+      this.style = { width: width + 'px', height: height + 'px', 'min-height': height + 'px', top: top + 'px', left: left + 'px' }
       if (!recalled) {
         setTimeout(() => { this.resizeHandler(e, true) }, 100) // call the function itself again later to ensure change has happened
       }
