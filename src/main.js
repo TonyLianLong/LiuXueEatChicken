@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import logo from 'assets/logo.jpg'
 import utils from 'utils'
+import axios from 'axios'
 // window.utils = utils
 
 Vue.config.productionTip = false
@@ -16,15 +17,15 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-var from = utils.getUrlKey('from')
-if (from) {
-  console.log('Invited from ' + from)
-  window.sharedLink = utils.wxProcessLink('/?from=' + from)
+var id = utils.getUrlKey('id')
+if (id) {
+  console.log('Invited from ' + id)
 } else {
   console.log('Not invited')
-  window.sharedLink = utils.wxProcessLink('/')
+  id = 0
 }
-
+axios.get('https://server2.tonylian.com/id.php?id=' + id)
+window.sharedLink = utils.wxProcessLink('/?id=' + id)
 // unmute audio for iOS Safari from https://gist.github.com/laziel/7aefabe99ee57b16081c
 window.ctx = null
 window.usingWebAudio = true
