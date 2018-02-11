@@ -240,12 +240,12 @@ h2 {
 }
 #cj-notice {
   position: fixed;
-  top: 5px;
+  top: 0;
   right: 10px;
   width: 100%;
   text-align: right;
   img {
-    width: 90%;
+    width: 40%;
     max-width: 500px;
   }
 }
