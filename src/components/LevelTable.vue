@@ -23,7 +23,7 @@
     <td>{{index+1}}</td>
     <td>{{item["name"]}}</td>
     <td>{{item["correctNum"]}}</td>
-    <td>{{item["time"]}}</td>
+    <td>{{prettifyTime(item["time"])}}</td>
   </tr>
 </table>
 </template>
@@ -31,7 +31,18 @@
 <script>
 export default {
   name: 'LevelTable',
-  props: {items: {type: Array, required: true}}
+  props: {items: {type: Array, required: true}},
+  methods: {
+    prettifyTime (time) {
+      if (time < 60) {
+        return time + '秒'
+      } else if (time % 60 === 0) {
+        return (time / 60) + '分'
+      } else {
+        return Math.floor(time / 60) + '分' + time % 60 + '秒'
+      }
+    }
+  }
 }
 </script>
 
