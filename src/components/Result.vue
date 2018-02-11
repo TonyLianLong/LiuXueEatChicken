@@ -235,7 +235,7 @@ h2 {
   margin-top: 0px;
   margin-bottom: 0px;
   img {
-    width: 60%;
+    width: 80%;
   }
 }
 #cj-notice {

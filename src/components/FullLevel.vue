@@ -73,7 +73,7 @@ export default {
     margin-bottom: 0px;
   }
   #banner-bottom img {
-    width: 80%;
+    width: 90%;
   }
 }
 .fl-body {
