@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
 import Game from '@/components/Game'
 import Level from '@/components/Level'
+import FullLevel from '@/components/FullLevel'
 import Result from '@/components/Result'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -51,6 +52,11 @@ export default new Router({
       name: 'Level',
       path: '/level',
       component: Level
+    },
+    {
+      name: 'FullLevel',
+      path: '/full-level',
+      component: FullLevel
     },
     {
       name: 'Not Found',
