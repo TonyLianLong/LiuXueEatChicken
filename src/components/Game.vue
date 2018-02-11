@@ -1,7 +1,7 @@
 <!-- 记得做大数据 -->
 <template>
   <div id="box" :class="boxClass">
-    <h1>挑战者：AQ</h1>
+    <h1>挑战中</h1>
     <div id="sec-col">
       <div id="used-sec">还剩 {{remSecond}} 秒</div>
       <div id="ti-num">答对 {{correctNum}} 题</div>
