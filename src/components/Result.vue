@@ -245,7 +245,7 @@ h2 {
   width: 100%;
   text-align: right;
   img {
-    width: 40%;
+    width: 60%;
     max-width: 500px;
   }
 }
